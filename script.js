@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
         nostalgic: 10770,// TV Movie
         mysterious: 9648,// Mystery
         uplifting: 14,   // Fantasy
-        thrilling: 53    // Thriller
+        thrilling: 53,   // Thriller
+        sleepy: 10751  
     };
 
     // Map language codes to full names
