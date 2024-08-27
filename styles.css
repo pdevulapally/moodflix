@@ -1,0 +1,479 @@
+/* Variables for easy theming */
+:root {
+    --primary-color: #2e3a59; /* Deep Blue */
+    --secondary-color: #f4a261; /* Gold Accent */
+    --accent-color: #e76f51; /* Coral Accent */
+    --bg-color: #f0f4f8; /* Light Gray */
+    --text-color: #2e3a59; /* Deep Blue for text */
+    --header-bg: linear-gradient(90deg, #2e3a59, #264653); /* Blue gradient */
+    --footer-bg: #2e3a59; /* Deep Blue */
+    --footer-text-color: #ffffff; /* White text */
+    --button-bg: var(--secondary-color); /* Gold for buttons */
+    --button-hover-bg: #e76f51; /* Coral on hover */
+    --form-bg: rgba(255, 255, 255, 0.9); /* Light glass effect */
+    --border-radius: 8px; /* For rounded corners */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Header */
+header {
+    background: var(--header-bg);
+    padding: 1rem 3rem;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 1.5rem;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Burger Menu */
+.burger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 21px;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.toggle .line2 {
+    opacity: 0;
+}
+
+.burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Responsive menu styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background: var(--header-bg);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
+/* Hero Section */
+#hero {
+    background: var(--header-bg);
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#hero h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-button {
+    padding: 0.8rem 2.5rem;
+    background-color: var(--button-bg);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.hero-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-3px);
+}
+
+/* Preferences Section */
+#preferences {
+    padding: 2.5rem 1rem;
+    background: var(--form-bg);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 800px;
+}
+
+#preferences h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.dropdown-container {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+#languageSearch {
+    border: none;
+    width: calc(100% - 30px);
+    font-size: 1rem;
+    outline: none;
+}
+
+#dropdownButton {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-button {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--button-bg);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.form-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Mood Selector */
+#mood-selector {
+    padding: 2.5rem 1rem;
+    background: var(--form-bg);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 800px;
+}
+
+#mood-selector h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.mood-wheel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+}
+
+.mood-option {
+    background: linear-gradient(145deg, var(--secondary-color), var(--button-hover-bg));
+    color: white;
+    padding: 1.2rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    min-height: 80px;
+    font-weight: bold;
+}
+
+.mood-option:hover, .mood-option.selected {
+    background: linear-gradient(145deg, var(--button-hover-bg), var(--accent-color));
+    transform: translateY(-7px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mood-option span {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Recommended Movies */
+#recommended-movies {
+    padding: 2.5rem 1rem;
+    background: var(--bg-color);
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+}
+
+#recommended-movies h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.movie-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.movie-card {
+    min-width: 200px;
+    scroll-snap-align: start;
+    background: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    height: auto;
+}
+
+.movie-card h3 {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.movie-card p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Shuffle Button Styles */
+.shuffle-button {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.shuffle-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-3px);
+}
+
+/* Playlists */
+#playlists {
+    padding: 2.5rem 1rem;
+    background: var(--form-bg);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 3rem auto;
+}
+
+#playlists h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border-top: 2px solid var(--secondary-color);
+}
+
+footer p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+footer p a {
+    color: var(--button-bg);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+footer p a:hover {
+    color: var(--button-hover-bg);
+}
+
+/* Display selected options */
+.selected-display {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+/* Dropdown hidden by default */
+.hidden {
+    display: none;
+}

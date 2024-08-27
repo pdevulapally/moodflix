@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Movie</title>
+    <link href="https://cdn.plyr.io/3.6.8/plyr.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .plyr__video-embed {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="plyr__video-embed" id="player">
+        <iframe
+            src=""
+            allowfullscreen
+            allowtransparency
+            allow="autoplay"
+        ></iframe>
+    </div>
+
+    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const movieUrl = urlParams.get('movieUrl');
+
+            if (movieUrl) {
+                const iframe = document.querySelector('#player iframe');
+                iframe.src = movieUrl;
+            } else {
+                alert("Movie URL not found!");
+            }
+        });
+    </script>
+</body>
+</html>
