@@ -1,0 +1,272 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables for easy theming */
+:root {
+    --primary-color: #2e3a59; /* Deep Blue */
+    --secondary-color: #f4a261; /* Gold Accent */
+    --accent-color: #e76f51; /* Coral Accent */
+    --bg-color: #f0f4f8; /* Light Gray */
+    --text-color: #2e3a59; /* Deep Blue for text */
+    --header-bg: linear-gradient(90deg, #2e3a59, #264653); /* Blue gradient */
+    --footer-bg: #2e3a59; /* Deep Blue */
+    --footer-text-color: #ffffff; /* White text */
+    --button-bg: var(--secondary-color); /* Gold for buttons */
+    --button-hover-bg: #e76f51; /* Coral on hover */
+    --form-bg: rgba(255, 255, 255, 0.9); /* Light glass effect */
+    --border-radius: 8px; /* For rounded corners */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Body and General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: var(--header-bg);
+    padding: 1rem 3rem;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header .logo h1 {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+
+header .logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 1.5rem;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--secondary-color);
+}
+
+/* Burger Menu */
+.burger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 21px;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.toggle .line2 {
+    opacity: 0;
+}
+
+.burger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Responsive menu styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background: var(--header-bg);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
+/* Terms and Conditions Section */
+#terms-and-conditions {
+    padding: 2.5rem 1rem;
+    background: var(--form-bg);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: left;
+    margin: 3rem auto;
+    max-width: 800px;
+}
+
+#terms-and-conditions .container {
+    padding: 1rem 2rem;
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+}
+
+#terms-and-conditions h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+#terms-and-conditions h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+#terms-and-conditions p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+#terms-and-conditions ul {
+    margin: 1rem 0;
+    padding-left: 20px;
+}
+
+#terms-and-conditions ul li {
+    margin-bottom: 0.5rem;
+}
+
+#terms-and-conditions a {
+    color: var(--button-hover-bg);
+    text-decoration: none;
+}
+
+#terms-and-conditions a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+footer p a {
+    color: var(--button-bg);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+footer p a:hover {
+    color: var(--button-hover-bg);
+}
+
+/* Responsive Design for Terms and Conditions */
+@media (max-width: 992px) {
+    #terms-and-conditions {
+        padding: 2rem 1rem;
+        margin: 2rem auto;
+    }
+
+    #terms-and-conditions .container {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #terms-and-conditions {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem auto;
+    }
+
+    #terms-and-conditions .container {
+        padding: 1rem 1rem;
+    }
+
+    header .logo h1 {
+        font-size: 1.8rem;
+    }
+
+    header .nav-links li a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    #terms-and-conditions {
+        padding: 1rem 0.5rem;
+    }
+
+    #terms-and-conditions .container {
+        padding: 0.5rem 0.5rem;
+    }
+
+    #terms-and-conditions h2 {
+        font-size: 1.8rem;
+    }
+
+    #terms-and-conditions h3 {
+        font-size: 1.2rem;
+    }
+}
