@@ -38,6 +38,29 @@
         </div>
     </section>
 
+     <div id="tutorialModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeTutorial">&times;</span>
+            <h2>Welcome to MoodFlix!</h2>
+            <p>This is a brief tutorial on how to use the website:</p>
+            <video id="tutorialVideo" width="100%" controls>
+                <source src="Images/tutorial.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Follow these steps to get the best experience:</p>
+            <ul class = "tutorial-p">
+               <li><strong>Select Your Mood:</strong> Use the mood wheel to pick how you're feeling today. Whether you're happy, sad, adventurous, or anything else, we've got movie recommendations tailored just for you.</li>
+                <li><strong>Get Movie Recommendations:</strong> After selecting a mood, you'll see a list of movies that match your choice. Click on any movie to get more details, including a brief description and where you can stream it.</li>
+                <li><strong>Set Your Preferences:</strong> Click on the preferences section to customize your experience. You can choose your preferred language and age group. This ensures that the movie recommendations fit your needs.</li>
+                <li><strong>Shuffle Movies:</strong> Not satisfied with the initial recommendations? Use the shuffle button to get a fresh set of movies based on your selected mood.</li>
+                <li><strong>click on streaming link:</strong> Click on the streaming link button below the movie card to get redirected to the movie platform.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Button to toggle the tutorial modal -->
+    <button id="tutorialButton" class="tutorial-button">?</button>
+
     <section id="preferences" class="animate__animated animate__fadeInUp">
         <h2>Set Your Preferences</h2>
         <form id="preferences-form">
