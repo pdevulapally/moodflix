@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const moodToGenreMap = {
         happy: 35, sad: 18, adventurous: 12, romantic: 10749, excited: 28,
         relaxed: 10751, scared: 27, funny: 35, inspiring: 99, nostalgic: 10770,
-        mysterious: 9648, uplifting: 14, thrilling: 53, sleepy: 10751, action: 28,
+        mysterious: 9648, uplifting: 14, thrilling: 53, sleepy: 10751,  action: 28,  
         scientific: 878, investigation: 80
     };
 
@@ -262,3 +262,49 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const tutorialModal = document.getElementById("tutorialModal");
+    const tutorialButton = document.getElementById("tutorialButton");
+    const closeTutorial = document.getElementById("closeTutorial");
+    const tutorialVideo = document.getElementById("tutorialVideo");
+
+    // Check if the user is new
+    if (!localStorage.getItem('tutorialSeen')) {
+        showTutorial();
+    }
+
+    // Show the tutorial modal
+    function showTutorial() {
+        tutorialModal.style.display = "flex";
+        localStorage.setItem('tutorialSeen', 'true');
+        tutorialVideo.play(); // Auto-play video when modal opens
+    }
+
+    // Hide the tutorial modal
+    function hideTutorial() {
+        tutorialModal.style.display = "none";
+        tutorialVideo.pause(); // Pause video when modal closes
+    }
+
+    // Toggle the tutorial modal
+    function toggleTutorial() {
+        if (tutorialModal.style.display === "flex") {
+            hideTutorial();
+        } else {
+            showTutorial();
+        }
+    }
+
+    // Event listeners
+    tutorialButton.addEventListener("click", toggleTutorial);
+    closeTutorial.addEventListener("click", hideTutorial);
+
+    // Close modal when clicking outside of it
+    window.addEventListener("click", function(event) {
+        if (event.target === tutorialModal) {
+            hideTutorial();
+        }
+    });
+});
+
