@@ -26,7 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const moodToGenreMap = {
         happy: 35, sad: 18, adventurous: 12, romantic: 10749, excited: 28,
         relaxed: 10751, scared: 27, funny: 35, inspiring: 99, nostalgic: 10770,
-        mysterious: 9648, uplifting: 14, thrilling: 53, sleepy: 10751
+        mysterious: 9648, uplifting: 14, thrilling: 53, sleepy: 10751, action: 28,
+        scientific: 878, investigation: 80
     };
 
     const languageMap = {
