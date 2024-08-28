@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodFlix Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="premium.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1><a href="index.html">MoodFlix</a></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#upgrade">Upgrade</a></li>
+                <li><a href="#account">Manage Account</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Welcome to MoodFlix Premium</h2>
+            <p>Experience the best of entertainment with exclusive features, ad-free streaming, and more. Unlock your full potential with MoodFlix Premium.</p>
+            <a href="#upgrade" class="cta-button" id="upgradeButton">Upgrade Now</a>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>Premium Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="Images/ad-block-icon-in-red-colors-no-ads-signs-button-png.webp" alt="Ad-Free Experience">
+                <h3>Ad-Free Streaming</h3>
+                <p>Enjoy uninterrupted viewing with no ads, ever.</p>
+            </div>
+            <div class="feature-card">
+                <img src="Images/5268420.png" alt="Exclusive Content">
+                <h3>Exclusive Content</h3>
+                <p>Access premium movies and shows only available to premium members.</p>
+            </div>
+            <div class="feature-card">
+                <img src="Images/earlyaccess.png" alt="Early Access">
+                <h3>Early Access</h3>
+                <p>Watch new releases before anyone else with early access privileges.</p>
+            </div>
+            <div class="feature-card">
+                <img src="Images/Downloads-icon.png" alt="Offline Downloads">
+                <h3>Offline Downloads</h3>
+                <p>Download your favorite content and watch offline anytime, anywhere.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="upgrade">
+        <h2>Upgrade to Premium</h2>
+        <p>Take your entertainment experience to the next level. Upgrade to MoodFlix Premium today and enjoy all the exclusive benefits.</p>
+        <a href="payment.html" class="cta-button" id="upgradeButtonFooter">Upgrade Now</a>
+    </section>
+
+    <section id="account">
+        <h2>Manage Your Account</h2>
+        <p>Already a premium member? Manage your account settings, billing, and more.</p>
+        <a href="account.html" class="cta-button">Manage Account</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MoodFlix Premium. All rights reserved.</p>
+        <p><a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <div id="upgradeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Upgrade Your Account</h2>
+            <p>Upgrade to MoodFlix Premium and enjoy all the exclusive benefits.</p>
+            <a href="payment.html" class="cta-button">Proceed to Payment</a>
+        </div>
+    </div>
+
+    <script src="premium.js"></script>
+</body>
+</html>
