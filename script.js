@@ -278,6 +278,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function showTutorial() {
         tutorialModal.style.display = "flex";
         localStorage.setItem('tutorialSeen', 'true');
+        tutorialVideo.play(); // Auto-play video when modal opens
     }
 
     // Hide the tutorial modal
