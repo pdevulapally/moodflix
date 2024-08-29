@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     movieGrid.parentNode.insertBefore(shuffleContainer, movieGrid);
 
     const tmdbApiKey = 'db15001b68f2a22bb24a536a517a14a5'; // Replace with your actual TMDb API key
-    const watchmodeApiKey = 'THkmzUXaTEk1PQpRIj7GhiP2EgG5u79JsruspEgV '; // Replace with your actual Watchmode API key
+    const watchmodeApiKey = 'IIPUoQVHAVMDg20Z7feJuSSfCWsN7PwuYuRnpZyc'; // Replace with your actual Watchmode API key
 
     let currentMovies = [];
 
