@@ -1,0 +1,708 @@
+/* Premium MoodTunes Styling */
+
+/* Advanced Color Palette & Premium Variables */
+:root {
+    /* Deep, Sophisticated Color Scheme */
+    --primary-color: #0A192F;         /* Deep Navy Blue */
+    --secondary-color: #112240;       /* Darker Navy Blue */
+    --accent-color: #64FFDA;          /* Vibrant Teal */
+    --text-primary: #CCD6F6;          /* Soft Light Blue */
+    --text-secondary: #8892B0;        /* Muted Gray-Blue */
+    
+    /* Gradient & Shadow Enhancements */
+    --gradient-primary: linear-gradient(
+        135deg, 
+        var(--primary-color), 
+        var(--secondary-color)
+    );
+    --gradient-accent: linear-gradient(
+        45deg, 
+        var(--accent-color), 
+        color-mix(in srgb, var(--accent-color) 80%, white)
+    );
+    
+    /* Advanced Shadow & Effects */
+    --shadow-elevated: 0 15px 35px rgba(0, 0, 0, 0.4);
+    --shadow-subtle: 0 5px 15px rgba(0, 0, 0, 0.2);
+    
+    /* Typography & Spacing */
+    --font-primary: 'Inter', 'Roboto', sans-serif;
+    --border-radius: 10px;
+    --transition-smooth: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Reset & Global Styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Premium Header Navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    box-shadow: var(--shadow-elevated);
+    padding: 1rem 5%;
+    transition: var(--transition-smooth);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo h1 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition-smooth);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.nav-links .btn {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition-smooth);
+}
+
+.nav-links .btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+}
+
+/* Responsive Burger Menu */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: var(--transition-smooth);
+}
+
+/* Hero Section - Futuristic & Premium */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(
+            circle at top right, 
+            rgba(100, 255, 218, 0.1), 
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at bottom left, 
+            rgba(100, 255, 218, 0.1), 
+            transparent 50%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-button {
+    display: inline-block;
+    background: var(--gradient-accent);
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-elevated);
+}
+
+.hero-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Mood Selector - Enhanced Grid */
+#mood-selector {
+    background: var(--secondary-color);
+    padding: 4rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mood-wheel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.mood-option {
+    background: rgba(17, 34, 64, 0.7);
+    border: 2px solid transparent;
+    transition: var(--transition-smooth);
+    text-align: center;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transform: perspective(500px) rotateX(10deg);
+}
+
+.mood-option:hover {
+    border-color: var(--accent-color);
+    transform: scale(1.05) perspective(500px) rotateX(0);
+    box-shadow: var(--shadow-elevated);
+}
+
+.mood-option span {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.mood-option:hover span {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Recommended Music Grid */
+#recommended-music {
+    background: var(--primary-color);
+    padding: 4rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.music-card {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    transform: translateY(0);
+}
+
+.music-card:hover {
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-elevated);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    /* Mobile Navigation */
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 75%;
+        background: var(--secondary-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transition-smooth);
+        z-index: 100;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .burger {
+        display: flex;
+        z-index: 200;
+    }
+
+    .burger.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.active .line2 {
+        opacity: 0;
+    }
+
+    .burger.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Footer */
+footer {
+    background: var(--secondary-color);
+    color: var(--text-secondary);
+    padding: 2rem 5%;
+    text-align: center;
+}
+
+/* Profile Dropdown Styling */
+.profile-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.profile-trigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.profile-trigger img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.profile-trigger:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px rgba(100, 255, 218, 0.2);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 318px;
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-elevated);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Music Card */
+.music-card {
+    background: var(--secondary-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+}
+
+.music-card img {
+    width: 86%; /* Set full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: var(--border-radius);
+    object-fit: cover; /* Ensures the image scales properly */
+    max-height: 200px; /* Set a reasonable max height */
+    margin-bottom: 1rem;
+}
+
+/* Spotify Button */
+.music-card .spotify-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1DB954; /* Spotify green */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    margin-top: 1rem;
+    box-shadow: var(--shadow-elevated);
+}
+
+.music-card .spotify-button:hover {
+    background-color: #1ed760; /* Slightly lighter green on hover */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.music-card .spotify-button img {
+    margin-right: 0.5rem;
+    width: 20px;
+    height: 20px;
+}
+
+/* Title and Owner Styling */
+.music-card h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin: 0.5rem 0;
+}
+
+.music-card p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Profile Details */
+.profile-details {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    background: rgba(17, 34, 64, 0.8);
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.profile-details img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 2px solid var(--accent-color);
+    object-fit: cover;
+}
+
+.profile-details h4 {
+    color: var(--text-primary);
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.profile-details p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li {
+    padding: 0.8rem 1.2rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+
+.dropdown-menu ul li i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.dropdown-menu ul li:hover {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--accent-color);
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+/* Login Button Styles */
+.login-btn {
+    display: inline-block;
+    background: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-subtle);
+}
+
+.login-btn:active {
+    transform: translateY(1px);
+    background: rgba(100, 255, 218, 0.2);
+}
+
+/* Language Preferences Section */
+#preferences {
+    background: var(--secondary-color);
+    color: var(--text-primary);
+    padding: 3rem 5%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-elevated);
+    margin: 2rem auto;
+    text-align: center;
+    max-width: 800px;
+}
+
+#preferences h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+#preferencesForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    background: var(--primary-color);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    appearance: none; /* Hides the default arrow for better styling */
+    position: relative;
+    z-index: 1; /* Ensures dropdown options are above other content */
+}
+
+
+.form-group select:hover,
+.form-group select:focus {
+    border-color: var(--accent-color);
+    background: var(--secondary-color);
+}
+
+.form-group select option {
+    color: var(--text-primary);
+    background: var(--primary-color);
+    border: none;
+    padding: 0.8rem;
+}
+
+select:focus-visible {
+    outline: none;
+}
+
+/* Ensure dropdown options display downward */
+.form-group select {
+    overflow: visible;
+    position: relative;
+}
+
+
+.btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: var(--accent-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-subtle);
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, var(--accent-color), #ffffff);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-subtle);
+}
+
+/* Responsive Adjustments for Preferences Section */
+@media screen and (max-width: 768px) {
+    #preferences {
+        padding: 2rem;
+    }
+
+    .form-group {
+        max-width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Alternative Filled Style */
+.login-btn.filled {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: 2px solid var(--accent-color);
+}
+
+.login-btn.filled:hover {
+    background: color-mix(in srgb, var(--accent-color) 90%, white);
+    box-shadow: var(--shadow-elevated);
+}
+
+/* Responsive Login Button */
+@media screen and (max-width: 768px) {
+    .login-btn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dropdown-menu {
+        position: fixed; /* Fixed to viewport for mobile */
+        top: 50px; /* Below the header */
+        right: 0;
+        width: 100%; /* Full width */
+        border-radius: 0; /* Remove rounded corners */
+        box-shadow: none; /* Simplify shadow for smaller screens */
+        z-index: 1000;
+    }
+
+    .profile-details {
+        padding: 1.5rem;
+        background: rgba(17, 34, 64, 0.8);
+        text-align: center;
+        border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+    }
+
+    .profile-details img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .profile-details h4 {
+        font-size: 1.1rem;
+    }
+
+    .profile-details p {
+        font-size: 0.95rem;
+    }
+
+    .dropdown-menu ul li {
+        padding: 1rem;
+        text-align: center; /* Center align text for better spacing */
+    }
+
+    .dropdown-menu ul li:hover {
+        background: rgba(100, 255, 218, 0.1);
+    }
+}

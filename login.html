@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoodFlix - Login</title>
+    <title>MoodTunes - Login</title>
     <!-- External Stylesheet and Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="moodtunes-login.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <h1>MoodFlix</h1>
+                <h1>MoodTunes</h1>
             </div>
         </nav>
     </header>
 
     <section id="login-section">
-        <h2>Login to MoodFlix</h2>
+        <h2>Login to MoodTunes</h2>
 
         <!-- Email/Password Login Form -->
         <div id="emailPasswordLogin">
@@ -43,72 +43,9 @@
 
         <!-- Message Area for User Feedback -->
         <div id="messageArea"></div>
-
     </section>
 
     <!-- Firebase and JavaScript -->
-    <script type="module">
-        // Import Firebase SDK
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyC7s1KaS0e27dbSJuBZ-6HEa5aDAf9o1Xs",
-            authDomain: "moodflix-8d7dd.firebaseapp.com",
-            projectId: "moodflix-8d7dd",
-            storageBucket: "moodflix-8d7dd.appspot.com",
-            messagingSenderId: "85274276522",
-            appId: "1:85274276522:web:6126c743e99b27915796d3",
-            measurementId: "G-04GLZ1N633"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
-
-        // Email/Password Sign-In
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    if (user.emailVerified) {
-                        console.log(`User ${user.email} logged in with email/password.`);
-                        window.location.href = "index.html"; // Redirect to home page
-                    } else {
-                        showMessage('Please verify your email before logging in.');
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error during email/password login:', error.message);
-                    showMessage('Error: ' + error.message);
-                });
-        });
-
-        // Google Sign-In
-        document.getElementById('googleLoginBtn').addEventListener('click', () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    console.log(`User ${result.user.displayName} logged in with Google.`);
-                    window.location.href = "index.html"; // Redirect to home page
-                })
-                .catch((error) => {
-                    console.error('Error during Google login:', error.message);
-                    showMessage('Error: ' + error.message);
-                });
-        });
-
-        // Display message function
-        function showMessage(message) {
-            const messageArea = document.getElementById('messageArea');
-            messageArea.textContent = message;
-            messageArea.classList.add('visible');
-        }
-    </script>
+    <script type="module" src="login.js"></script>
 </body>
 </html>

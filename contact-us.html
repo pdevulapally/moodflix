@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodTunes - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6A5ACD;
+            --secondary-color: #4A4AFF;
+            --text-color: #333;
+            --background-color: #F9F9FF;
+            --white: #FFFFFF;
+            --light-purple: #E6E6FA;
+            --input-border: #D1D1E4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+         /* Burger Menu */
+        .burger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+
+
+        /* Main Content */
+        main {
+            padding-top: 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 50px;
+        }
+
+        /* Contact Section Premium Styling */
+        #contact-section {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-purple) 100%);
+            border-radius: 20px;
+            box-shadow: 
+                0 15px 30px rgba(106, 90, 205, 0.1), 
+                0 10px 20px rgba(106, 90, 205, 0.05);
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(106, 90, 205, 0.05) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .contact-container {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #contact-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        #contact-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        #contact-section p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--input-border);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            background-color: rgba(255,255,255,0.7);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus::placeholder,
+        .form-group textarea:focus::placeholder {
+            opacity: 0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(106, 90, 205, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Rest of the CSS remains the same as in the previous version */
+        @media screen and (max-width: 768px) {
+            /* Mobile styles remain the same */
+        }
+
+         @media screen and (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                height: calc(100vh - 70px);
+                padding-top: 2rem;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .nav-links.active {
+                right: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+                opacity: 0;
+                transform: translateX(100%);
+                transition: all 0.4s ease;
+            }
+
+            .nav-links.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            .nav-links li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-links li:nth-child(2) { transition-delay: 0.2s; }
+            .nav-links li:nth-child(3) { transition-delay: 0.3s; }
+            .nav-links li:nth-child(4) { transition-delay: 0.4s; }
+
+            .burger {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .burger.active .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .burger.active .line2 {
+                opacity: 0;
+            }
+
+            .burger.active .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+        <nav>
+            <div class="logo">
+                <h1>MoodTunes</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#mood-selector">Moods</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Header and other sections remain the same as in the previous version -->
+    <main>
+        <section id="contact-section">
+            <div class="contact-container">
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you! Feel free to reach out with any questions, feedback, or partnership inquiries.</p>
+                
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+   <script>
+        // Burger Menu JavaScript
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('active');
+        });
+
+        // Close menu when a nav link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
